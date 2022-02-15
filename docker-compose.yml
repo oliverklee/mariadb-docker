@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mariadb:
+    image: "mariadb:10.7.1"
+    restart: 'always'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.101.2
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.101.0/16
+          gateway: 192.168.101.1
