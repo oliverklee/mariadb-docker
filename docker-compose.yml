@@ -3,7 +3,7 @@ version: '3'
 services:
   mariadb:
     image: "mariadb:10.7.1"
-    restart: 'always'
+    restart: 'unless-stopped'
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
     networks:
